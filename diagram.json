@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "PATR Tunnel",
+  "editor": "wokwi",
+
+  "serialMonitor": {
+    "display": "always"
+  },
+
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+
+    { "type": "wokwi-led", "id": "ledIn", "top": -40, "left": 260, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledOut", "top": 0, "left": 260, "attrs": { "color": "blue" } },
+    { "type": "wokwi-led", "id": "ledAlarm", "top": 40, "left": 260, "attrs": { "color": "red" } },
+
+    { "type": "wokwi-resistor", "id": "r1", "top": -40, "left": 320, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 0, "left": 320, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "r3", "top": 40, "left": 320, "attrs": { "value": "220" } }
+  ],
+
+  "connections": [
+    [ "uno:7", "ledIn:A", "green", [ "v0" ] ],
+    [ "ledIn:K", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "uno:GND.1", "black", [ "v0" ] ],
+
+    [ "uno:6", "ledOut:A", "blue", [ "v0" ] ],
+    [ "ledOut:K", "r2:1", "blue", [ "v0" ] ],
+    [ "r2:2", "uno:GND.1", "black", [ "v0" ] ],
+
+    [ "uno:13", "ledAlarm:A", "red", [ "v0" ] ],
+    [ "ledAlarm:K", "r3:1", "red", [ "v0" ] ],
+    [ "r3:2", "uno:GND.1", "black", [ "v0" ] ]
+  ]
+}
